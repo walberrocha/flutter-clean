@@ -137,34 +137,5 @@ main() {
 
       expect(future, throwsA(HttpError.serverError));
     });
-
-    String coffee = 'empty';
-
-    test('coffe', () {
-        while (true) {
-          if (coffee == 'empty') {
-            print('fill');
-            break;
-          } else if (coffee == 'full') {
-            print('drink');
-            break;
-          } else {
-            print("it's ok");
-          }
-          print('So proceed... ☕️');
-        }
-      
-    });
-
-    test('teste http-adm', () async {
-      final response = await http.get(
-          Uri.parse('https://admmaster.azurewebsites.net/api/v1/adm-master-users'),
-          headers: {
-            'Authorization':
-                'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFkZW1pcm8iLCJyb2xlIjoiQWRtaW5pc3RyYXRvciIsIm5iZiI6MTY3NDc3ODI3MSwiZXhwIjoxNjc0Nzg1NDcxLCJpYXQiOjE2NzQ3NzgyNzEsImlzcyI6IkFkbU1hc3RlclByb2R1Y3Rpb24iLCJhdWQiOiJBZG1NYXN0ZXJQcm9kdWN0aW9uOjIyNzk5In0.dwdrto-BM9EzLODdZv2-Opr6QC0CxwARcBmTmhiBD_A'
-          });
-          print(response.body);
-          print(response.statusCode);
-    });
   });
 }
