@@ -17,13 +17,17 @@ class StreamLoginPresenter {
 class ValidationSpy extends Mock implements Validation {}
 
 void main() {
+  late StreamLoginPresenter sut;
+  late ValidationSpy validation;
+  late String email;
+  setUp(() {
+    validation = ValidationSpy();
+    sut = StreamLoginPresenter(validation: validation);
+    email = faker.internet.email();
+  });
   test('should call Validation with correct email', () {
-    final validation = ValidationSpy();
-    final sut = StreamLoginPresenter(validation: validation);
-    final email = faker.internet.email();
-
     sut.validateEmail(email);
 
-    verify(()=> validation.validate(field: 'email', value: email)).called(1);
+    verify(() => validation.validate(field: 'email', value: email)).called(1);
   });
 }
