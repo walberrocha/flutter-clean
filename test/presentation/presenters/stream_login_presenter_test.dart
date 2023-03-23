@@ -3,10 +3,9 @@ import 'dart:async';
 import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:tdd_clean_architecture/presentation/protocols/validation.dart';
 
-abstract class Validation {
-  String? validate({required String field, required String value});
-}
+
 
 class LoginState {
   late String emailError;
