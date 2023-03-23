@@ -72,4 +72,15 @@ void main() {
     sut.validatePassword(email);
     sut.validatePassword(email);
   });
+
+  test('should emit password error if validation fails', () {
+
+    sut.passwordErrorStream
+        .listen(expectAsync1((error) => expect(error, null)));
+    sut.isFormValidStream
+        .listen(expectAsync1((isValid) => expect(isValid, false)));
+
+    sut.validatePassword(email);
+    sut.validatePassword(email);
+  });
 }
