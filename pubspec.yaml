@@ -39,6 +39,7 @@ dependencies:
   http: ^0.13.5
   provider:
   equatable:
+  search_cep: 
 
 dev_dependencies:
   flutter_test:
